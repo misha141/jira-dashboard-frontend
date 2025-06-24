@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { useNavigate, Link }  from 'react-router-dom';
+import './Register.css'
 
 function Register(){
     const navigate = useNavigate();
@@ -18,6 +19,7 @@ function Register(){
         e.preventDefault();
         try{
             await axios.post('http://localhost:8080/api/users/register', formData);
+            localStorage.setItem('registrationSucess','true');
             navigate('/login');
 
         }catch (err){
@@ -26,9 +28,10 @@ function Register(){
     };
 
     return (
-        <div >
-            <h2>Register</h2>
+        <div className="form-container">
+            <h2 className="register-heading">Register</h2>
             {error && <p style={{color : 'red'}}>{error}</p>}
+            <div className="form-card" >
             <form onSubmit={handleSubmit}>
                 <input
                     type = "text"
@@ -80,7 +83,8 @@ function Register(){
 
                 <button type = "submit">Register</button>
             </form>
-            <p>
+            </div>
+            <p className="singin-link">
                 Already have an account? <Link to ="/login">Login here</Link>
             </p>
         </div>

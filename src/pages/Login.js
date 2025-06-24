@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import './Login.css';
+
 
 function Login(){
     const navigate = useNavigate();
@@ -20,9 +22,10 @@ function Login(){
     };
 
     return (
-        <div>
-            <h2> Login </h2>
+        <div className="form-container">
+            <h2 className="login-heading"> Login </h2>
             {error && <p style = {{color : 'red'}}>{error}</p>}
+            <div className="form-card">
             <form onSubmit = {handleSubmit}>
                 <input
                  type = "email" placeholder="Email" required
@@ -34,7 +37,8 @@ function Login(){
                  /><br/>
                  <button type = "submit">Login</button>
             </form>
-            <p>
+            </div>
+            <p className="login-link">
                 Don't have an account? <Link to = "/register">Register Here</Link>
             </p>
 
