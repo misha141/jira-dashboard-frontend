@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './pages/Profile';
+import Projects from './pages/Projects';
 
 function App(){
   const isAuthenticated = !!localStorage.getItem('token');
@@ -17,6 +18,8 @@ function App(){
        <Route path = "/register" element = {<Register/>}/>
        <Route path="/profile" 
         element={<PrivateRoute><Profile/></PrivateRoute>} />
+       <Route path="/projects"
+        element={<PrivateRoute><Projects/></PrivateRoute>} />
 
        <Route
           path = "/dashboard"

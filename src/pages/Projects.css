@@ -1,0 +1,39 @@
+.projects-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.project-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.project-form input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.project-form button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.project-list {
+  display: grid;
+  gap: 15px;
+}
+
+.project-card {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
