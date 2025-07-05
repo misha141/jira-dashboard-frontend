@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Navigate, Route } from 'react-router-d
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import PrivateRoute from './components/PrivateRoute';
+import Profile from './pages/Profile';
 
 function App(){
   const isAuthenticated = !!localStorage.getItem('token');
@@ -10,13 +12,20 @@ function App(){
   return (
     <Router>
       <Routes>
-        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard"/> : <Navigate to ="/login" />}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path= "/register" element={<Register/>}/>
-        <Route
+       <Route path ="/" element = {<Navigate to ={isAuthenticated ? "/dashboard" : "/login"}/>}/>
+       <Route path = "/login" element = {<Login/>}/>
+       <Route path = "/register" element = {<Register/>}/>
+       <Route path="/profile" 
+        element={<PrivateRoute><Profile/></PrivateRoute>} />
+
+       <Route
           path = "/dashboard"
-          element = {isAuthenticated ? <Dashboard /> : <Navigate to ="/login" />}
+          element={<PrivateRoute>
+            <Dashboard/>
+          </PrivateRoute>
+          }
         />
+
       </Routes>
     </Router>
   );

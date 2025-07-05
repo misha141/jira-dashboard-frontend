@@ -20,6 +20,8 @@ function Register(){
         try{
             await axios.post('http://localhost:8080/api/users/register', formData);
             localStorage.setItem('registrationSucess','true');
+            alert("Registration Successful! Please login.");
+            
             navigate('/login');
 
         }catch (err){
