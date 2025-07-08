@@ -6,6 +6,8 @@ import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './pages/Profile';
 import Projects from './pages/Projects';
+import Tasks from './pages/Tasks';
+
 
 function App(){
   const isAuthenticated = !!localStorage.getItem('token');
@@ -20,6 +22,12 @@ function App(){
         element={<PrivateRoute><Profile/></PrivateRoute>} />
        <Route path="/projects"
         element={<PrivateRoute><Projects/></PrivateRoute>} />
+      <Route
+          path="/tasks"
+          element={
+            isAuthenticated ? <Tasks /> : <Navigate to="/login" />
+          }
+        />
 
        <Route
           path = "/dashboard"
