@@ -167,6 +167,9 @@ function Tasks() { // projectId prop is removed
           >
             Add New Task
           </button>
+          <button className="refresh-button" onClick={() => fetchTasks(selectedProjectId)}>
+            Refresh
+          </button>
         </div>
       </div>
 
@@ -180,6 +183,7 @@ function Tasks() { // projectId prop is removed
               ) : (
                 groupedTasks[status].map(task => (
                   <div key={task.id} className="task-card">
+                    <h4>Task #{task.taskId}: {task.title}</h4>
                     <h4>{task.title}</h4>
                     <p>{task.description}</p>
                     <div className="task-actions">
